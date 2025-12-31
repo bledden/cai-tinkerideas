@@ -1,0 +1,6 @@
+tinker
+torch
+numpy
+wandb
+transformers
+python-dotenv

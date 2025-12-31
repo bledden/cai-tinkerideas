@@ -1,0 +1,22 @@
+# Results and outputs
+results/
+wandb/
+*.tar.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
