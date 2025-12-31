@@ -27,6 +27,16 @@ We attempted to replicate Constitutional AI (CAI) training from a base language 
 
 **What this tells us**: At this data scale, SFT does the heavy lifting. DPO adds minimal improvement with 42 pairs—an interesting finding in itself about small-scale CAI behavior.
 
+### Training Curves (W&B)
+
+[View full W&B report](https://wandb.ai/facilitair/cai-base-model/reports/CAI-Data-From-wandb-Observability--VmlldzoxNTUwNzI4OA) | [PDF snapshot](assets/wandb_report.pdf)
+
+Key observations from 10-seed training:
+- **DPO margin** increases from 0 to 8-12 (model learns to prefer revised responses)
+- **DPO accuracy** reaches 80-100% (correctly distinguishes chosen vs rejected)
+- **Helpfulness** maintained at 4.6-5.0 throughout training
+- **Loss** increases during DPO phase (expected behavior as model learns to discriminate)
+
 ---
 
 ## Part 1: Project Origin and Design Decisions

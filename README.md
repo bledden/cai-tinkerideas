@@ -29,6 +29,15 @@ Most CAI/RLAIF implementations bootstrap from instruction-tuned models, creating
 
 See [docs/CAI_FINAL_REPORT.md](docs/CAI_FINAL_REPORT.md) for the complete experiment history, obstacles encountered, and lessons learned.
 
+### Training Curves (W&B)
+
+[View full W&B report](https://wandb.ai/facilitair/cai-base-model/reports/CAI-Data-From-wandb-Observability--VmlldzoxNTUwNzI4OA) | [PDF snapshot](docs/assets/wandb_report.pdf)
+
+Key observations from 10-seed training:
+- **DPO margin** increases from 0 to 8-12 (model learns to prefer revised responses)
+- **DPO accuracy** reaches 80-100% (correctly distinguishes chosen vs rejected)
+- **Helpfulness** maintained at 4.6-5.0 throughout training
+
 ## Method
 
 ```
