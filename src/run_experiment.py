@@ -330,7 +330,7 @@ Example usage:
         help="Skip evaluation (faster but no metrics)"
     )
     parser.add_argument(
-        "--output-dir", type=str, default="./results",
+        "--output-dir", type=str, default="../results",
         help="Output directory for results"
     )
     parser.add_argument(

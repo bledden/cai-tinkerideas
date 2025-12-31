@@ -27,7 +27,7 @@ Most CAI/RLAIF implementations bootstrap from instruction-tuned models, creating
 
 **Key insight**: At small data scale (42 pairs vs ~161K in the original paper), SFT does most of the work. The style flexibility hypothesis was contradicted—CAI training makes models *less* flexible, not more.
 
-See [CAI_FINAL_REPORT.md](CAI_FINAL_REPORT.md) for the complete experiment history, obstacles encountered, and lessons learned.
+See [docs/CAI_FINAL_REPORT.md](docs/CAI_FINAL_REPORT.md) for the complete experiment history, obstacles encountered, and lessons learned.
 
 ## Method
 
@@ -82,6 +82,8 @@ cp .env.example .env
 ### Run Training
 
 ```bash
+cd src
+
 # Quick test (1 seed, reduced steps)
 python run_experiment.py --n-seeds 1 --sft-steps 100 --dpo-steps 100
 
@@ -92,22 +94,29 @@ python run_experiment.py --n-seeds 10 --sft-steps 500 --dpo-steps 500
 ### Run Style Evaluation
 
 ```bash
-python run_style_eval.py --results-dir results/<your_run_dir>
+cd src
+python run_style_eval.py --results-dir ../results/<your_run_dir>
 ```
 
 ## Project Structure
 
 ```
 cai-base-model/
-├── config.py               # Constitution (18 principles), prompts, hyperparameters
-├── cai_trainer.py          # SFT and DPO training pipeline
-├── data_generation.py      # Constitutional critique/revision
-├── evaluation.py           # ASR and helpfulness evaluation
-├── style_diversity_eval.py # Style flexibility evaluation
-├── run_experiment.py       # Main experiment runner
-├── run_style_eval.py       # Style comparison runner
-├── CAI_FINAL_REPORT.md     # Complete experiment history
-└── FEATURED_PROJECT_WRITEUP.md  # Summary for Featured Projects
+├── src/                        # Source code
+│   ├── config.py               # Constitution (18 principles), prompts, hyperparameters
+│   ├── cai_trainer.py          # SFT and DPO training pipeline
+│   ├── data_generation.py      # Constitutional critique/revision
+│   ├── evaluation.py           # ASR and helpfulness evaluation
+│   ├── style_diversity_eval.py # Style flexibility evaluation
+│   ├── run_experiment.py       # Main experiment runner
+│   ├── run_style_eval.py       # Style comparison runner
+│   └── env_loader.py           # Environment variable loader
+├── docs/                       # Documentation
+│   ├── CAI_FINAL_REPORT.md     # Complete experiment history
+│   └── archive/                # Superseded reports
+├── results/                    # Output directory (gitignored)
+├── requirements.txt
+└── .env.example
 ```
 
 ## References

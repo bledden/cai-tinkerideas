@@ -503,7 +503,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="results/style_eval",
+        default="../results/style_eval",
         help="Output directory for results"
     )
     parser.add_argument(
